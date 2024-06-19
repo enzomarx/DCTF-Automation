@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from threading import Thread
-from automation import enviar_dctf
+from LoginDominioWeb import enviar_dctf
 
 def start_automation():
     cnpj = cnpj_entry.get()

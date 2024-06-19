@@ -4,11 +4,12 @@ import time
 
 tabela = pd.read_csv(r"C:\Users\PC\Desktop\Área de Trabalho\ByteVault\PROJETOS\Controllers\DCTF-Automation\DCTF-Automation\tests\dados.csv") # "EMPRESASID.csv = Relatorio Padrão Ajustavel.csv"
 print(tabela)
-
+#o csv devera ser indicado pelo usuarip na interface tkinter e no teste sera o meu caminho exemplo
 pyautogui.PAUSE = 0.9
 for linha in tabela.index:
-	pyautogui.click(162, 113)
-	time.sleep(0.25)
+	start_time = time.time()
+	pyautogui.doubleClick(162, 113)
+	time.sleep(1)
 	data = tabela.loc[linha, "CODIGO"]
 	pyautogui.write(str(tabela.loc[linha, "CODIGO"]))
 	pyautogui.press('enter')
@@ -45,4 +46,8 @@ for linha in tabela.index:
 	pyautogui.click(1026, 605)
 	pyautogui.click(1324, 343)
 	time.sleep(1)
+	
+end_time = time.time()
+execution_time = end_time - start_time
+print(f"Tempo de execução: {execution_time} segundos")
 
