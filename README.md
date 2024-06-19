@@ -1,6 +1,6 @@
 # DCTF Automation
 
-OOOOOEste projeto automatiza a transmissão de DCTF para várias empresas utilizando o Domínio Web Thomson Reuters e o app da Receita DCTF. A automação é realizada utilizando `pyautogui` para simular interações com a interface do usuário e `tkinter` para criar uma interface gráfica para o usuário.
+Este projeto automatiza a transmissão de DCTF para várias empresas utilizando o Domínio Web Thomson Reuters e o app da Receita DCTF. A automação é realizada utilizando `pyautogui` para simular interações com a interface do usuário e `tkinter` para criar uma interface gráfica para o usuário.
 
 ## Estrutura de Diretórios
 
