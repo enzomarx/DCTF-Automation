@@ -5,7 +5,7 @@ def enviar_dctf(cnpj, periodo):
     start_time = time.time()
     
     pyautogui.hotkey('win', 'r')
-    pyautogui.typewrite('chrome\n', interval=0.1)
+    pyautogui.typewrite('edge\n', interval=0.1)
     time.sleep(2)
     
     pyautogui.typewrite('https://dominio-web.thomsonreuters.com\n', interval=0.1)
