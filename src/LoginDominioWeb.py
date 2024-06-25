@@ -37,7 +37,7 @@ def enviar_dctf(cnpj, periodo):
     execution_time = end_time - start_time
     print(f"Tempo de execução: {execution_time} segundos")
 
-if __name__ == '__main__':
-    gui()
-    enviar_dctf()
-    DominioWeb()
+#if __name__ == '__main__':
+    #gui()
+    #nviar_dctf()
+    #DominioWeb()
