@@ -27,7 +27,6 @@ def start_automation():
         for index, row in df.iterrows():
             cnpj = row['cnpj']
             periodo = row['periodo']
-            # valores = row['valores'] # use valores if needed in the automation
             thread = Thread(target=enviar_dctf, args=(cnpj, periodo))
             thread.start()
     except Exception as e:
@@ -36,7 +35,6 @@ def start_automation():
 app = tk.Tk()
 app.title("Automação DCTF")
 
-# Modern styling
 app.geometry('400x200')
 app.configure(bg='#f5f5f5')
 
