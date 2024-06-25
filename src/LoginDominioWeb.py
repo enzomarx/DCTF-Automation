@@ -1,6 +1,7 @@
 import pyautogui
 import time
 import DominioWeb
+import gui
 
 DominioWeb()
 def enviar_dctf(cnpj, periodo):
@@ -37,5 +38,6 @@ def enviar_dctf(cnpj, periodo):
     print(f"Tempo de execução: {execution_time} segundos")
 
 if __name__ == '__main__':
+    gui()
     enviar_dctf()
     DominioWeb()
