@@ -1,5 +1,5 @@
 import unittest
-from src.automation import enviar_dctf
+from src.LoginDominioWeb import enviar_dctf
 
 class TestAutomation(unittest.TestCase):
     def test_enviar_dctf(self):
