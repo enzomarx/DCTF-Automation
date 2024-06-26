@@ -61,7 +61,7 @@ def run_automation(df, multiplier):
         pyautogui.press('enter')
         time.sleep(10 * multiplier)
 
-        pyautogui.click(x=686, y=307)
+        pyautogui.doubleClick(x=686, y=307)
         time.sleep(3.5 * multiplier)
         pyautogui.write('enzo') # Seu usuario
         pyautogui.press('tab')
