@@ -4,7 +4,9 @@ from threading import Thread
 import pandas as pd
 import pyautogui
 import time
-pyautogui.PAUSE = 1
+
+pyautogui.PAUSE = 0.5
+
 def upload_csv():
     file_path = filedialog.askopenfilename(filetypes=[("CSV files", "*.csv")])
     if file_path:
@@ -25,84 +27,75 @@ def start_automation():
     try:
         df = pd.read_csv(file_path)
         sleep_multiplier = float(sleep_multiplier_entry.get())
-        for index, row in df.iterrows():
-            thread = Thread(target=run_automation, args=(row, sleep_multiplier))
-            thread.start()
+        thread = Thread(target=run_automation, args=(df, sleep_multiplier))
+        thread.start()
     except Exception as e:
         messagebox.showerror("Erro", f"Erro ao processar o arquivo CSV: {e}")
 
-def run_automation(row, multiplier):
-# Login Dominio Web
-    
-    pyautogui.press('win')
-    pyautogui.write('edge')
-    pyautogui.press('enter')
-    time.sleep(2 * multiplier)
-    
-    pyautogui.write('https://www.dominioweb.com.br/')
-    pyautogui.press('enter')
-    time.sleep(5 * multiplier)
-    
-    pyautogui.click(x=400, y=300)
-    pyautogui.typewrite('usuario\n', interval=0.1 * multiplier)
-    pyautogui.typewrite('senha\n', interval=0.1 * multiplier)
-    pyautogui.press('enter')
-    time.sleep(5 * multiplier)
-    
-    pyautogui.click(x=400, y=400)
-    time.sleep(3 * multiplier)
-    
-    #Simulating aut0 tasks
-    #for key, value in row.items():
-        #pyautogui.typewrite(f"{key}: {value}\n", interval=0.1 * multiplier)
-        #time.sleep(1 * multiplier)
-    
-    #pyautogui.hotkey('alt', 'f4')
+def run_automation(df, multiplier):
+    start_time = time.time()
 
-# Dominio Web
-    tabela = pd.read_csv(r"C:\Users\PC\Desktop\Área de Trabalho\ByteVault\PROJETOS\Controllers\DCTF-Automation\DCTF-Automation\tests\dados.csv") # "EMPRESASID.csv = Relatorio Padrão Ajustavel.csv"
-    print(tabela)
-    for linha in tabela.index:
-        start_time = time.time()
-    pyautogui.doubleClick(162, 113)
-    time.sleep(1)
-    data = tabela.loc[linha, "CODIGO"]
-    pyautogui.write(str(tabela.loc[linha, "CODIGO"]))
-    pyautogui.press('enter')
-    time.sleep(3)
-    pyautogui.doubleClick(510, 62) #PASSO 2 :
-    time.sleep(1.5)
-    pyautogui.doubleClick(588, 133)
-    time.sleep(1.5)
-    pyautogui.doubleClick(789, 128)
-    time.sleep(1.5)
-    pyautogui.doubleClick(x=1019, y=267) #x=1055, y=239)
-    time.sleep(1.5)
-    pyautogui.doubleClick(x=1306, y=271) #x=1354, y=240)
-    time.sleep(1.5)
-    data = tabela.loc[linha, "DATA"]
-    pyautogui.write(str(tabela.loc[linha, "DATA"]))
-    pyautogui.press('enter')
-    time.sleep(0.25)
-    pyautogui.click(1087, 736) #...
-    pyautogui.click(1222, 390) #setinha icon
-    pyautogui.click(1181, 425) #clinte M 
-    pyautogui.click(x=757, y=468) #pasta DCTF
-    pyautogui.click(x=1104, y=678) #Ok 
-    pyautogui.click(855, 742) #campo da escrita
-    pyautogui.press('left')
-    pyautogui.press('left')
-    pyautogui.press('left')
-    pyautogui.press('left')
-    empresa = tabela.loc[linha, "EMPRESA"]
-    pyautogui.write(str(tabela.loc[linha, "EMPRESA"]))
-    time.sleep(0.20)
-    pyautogui.click(1234, 397) #exportar butão
-    time.sleep(7)
-    pyautogui.click(1026, 605)
-    pyautogui.click(1324, 343)
-    time.sleep(1)
-	
+    for index, row in df.iterrows():
+        # Login Dominio Web
+        pyautogui.press('win')
+        time.sleep(0.5)
+        pyautogui.write('edge', interval=0.25)  
+        pyautogui.press('enter')
+        time.sleep(2 * multiplier)
+
+        pyautogui.write('https://www.dominioweb.com.br/', interval=0.25)  
+        pyautogui.press('enter')
+        time.sleep(5 * multiplier)
+
+        pyautogui.click(x=400, y=300)
+        pyautogui.write('usuario', interval=0.1 * multiplier)
+        pyautogui.press('enter')
+        pyautogui.write('senha', interval=0.1 * multiplier)
+        pyautogui.press('enter')
+        time.sleep(5 * multiplier)
+
+        pyautogui.click(x=400, y=400)
+        time.sleep(3 * multiplier)
+
+        # Dominio Web Automação
+        pyautogui.doubleClick(162, 113)
+        time.sleep(1 * multiplier)
+        pyautogui.write(str(row['CODIGO']), interval=0.1 * multiplier)
+        pyautogui.press('enter')
+        time.sleep(3 * multiplier)
+        pyautogui.doubleClick(510, 62)
+        time.sleep(1.5 * multiplier)
+        pyautogui.doubleClick(588, 133)
+        time.sleep(1.5 * multiplier)
+        pyautogui.doubleClick(789, 128)
+        time.sleep(1.5 * multiplier)
+        pyautogui.doubleClick(x=1019, y=267)
+        time.sleep(1.5 * multiplier)
+        pyautogui.doubleClick(x=1306, y=271)
+        time.sleep(1.5 * multiplier)
+        pyautogui.write(str(row['DATA']), interval=0.1 * multiplier)
+        pyautogui.press('enter')
+        time.sleep(0.25 * multiplier)
+        pyautogui.click(1087, 736)
+        pyautogui.click(1222, 390)
+        pyautogui.click(1181, 425)
+        pyautogui.click(x=757, y=468)
+        pyautogui.click(x=1104, y=678)
+        pyautogui.click(855, 742)
+        pyautogui.press('left')
+        pyautogui.press('left')
+        pyautogui.press('left')
+        pyautogui.press('left')
+        pyautogui.write(str(row['EMPRESA']), interval=0.1 * multiplier)
+        time.sleep(0.2 * multiplier)
+        pyautogui.click(1234, 397)
+        time.sleep(7 * multiplier)
+        pyautogui.click(1026, 605)
+        pyautogui.click(1324, 343)
+        time.sleep(1 * multiplier)
+
+    pyautogui.hotkey('alt', 'f4')
+
     end_time = time.time()
     execution_time = end_time - start_time
     print(f"Tempo de execução: {execution_time} segundos")
