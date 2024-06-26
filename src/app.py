@@ -28,99 +28,33 @@ def start_automation():
     try:
         df = pd.read_csv(file_path)
         sleep_multiplier = float(sleep_multiplier_entry.get())
-        thread = Thread(target=run_automation, args=(df, sleep_multiplier))
+        if selected_task.get() == "EFD Contribuições":
+            thread = Thread(target=run_automation_efd, args=(df, sleep_multiplier))
+        elif selected_task.get() == "Cadastro SCP":
+            thread = Thread(target=run_automation_scp, args=(df, sleep_multiplier))
+        elif selected_task.get() == "DCTF":
+            thread = Thread(target=run_automation_dctf, args=(df, sleep_multiplier))
+        else:
+            messagebox.showwarning("Seleção Inválida", "Por favor, selecione um projeto válido.")
+            return
         thread.start()
     except Exception as e:
         messagebox.showerror("Erro", f"Erro ao processar o arquivo CSV: {e}")
 
-def run_automation(df, multiplier):
-    start_time = time.time()
-    total_tasks = len(df)
-    completed_tasks = 0
+def run_automation_dctf(df, multiplier):
+    # Código de automação para DCTF aqui
+    pass
 
-    for index, row in df.iterrows():
-        status_label.config(text=f"Processando linha {index+1} de {total_tasks}")
-        progress['value'] = (completed_tasks / total_tasks) * 100
-        app.update_idletasks()
-        
-        # Login Dominio Web
-        pyautogui.press('win')
-        time.sleep(0.5)
-        pyautogui.write('edge', interval=0.25)
-        pyautogui.press('enter')
-        time.sleep(2 * multiplier)
+def run_automation_efd(df, multiplier):
+    # Código de automação para EFD Contribuições aqui
+    pass
 
-        pyautogui.write('https://www.dominioweb.com.br/', interval=0.25)
-        pyautogui.press('enter')
-        time.sleep(5 * multiplier)
-
-        pyautogui.click(x=914, y=451)
-        pyautogui.write('joas@controllersbr.com', interval=0.1 * multiplier) # seu usuario
-        pyautogui.press('tab')
-        pyautogui.write('005570@Senha', interval=0.1 * multiplier) # sua senha
-        pyautogui.press('enter')
-        time.sleep(30 * multiplier)
-
-        pyautogui.doubleClick(x=686, y=307)
-        time.sleep(7.5 * multiplier)
-        pyautogui.write('enzo') # Seu usuario
-        pyautogui.press('tab')
-        pyautogui.write('senha@123') # Sua senha
-        pyautogui.press('tab')
-        pyautogui.press('tab')
-        pyautogui.press('enter')
-        time.sleep(35 * multiplier)
-
-
-        # Dominio Web Automação
-        pyautogui.doubleClick(162, 113)
-        time.sleep(5 * multiplier)
-        pyautogui.write(str(row['codigo']), interval=0.1 * multiplier)
-        pyautogui.press('enter')
-        time.sleep(3 * multiplier)
-        pyautogui.doubleClick(510, 62)
-        time.sleep(1.5 * multiplier)
-        pyautogui.doubleClick(510, 62) #2
-        time.sleep(1.5 * multiplier)
-        pyautogui.doubleClick(588, 133)
-        time.sleep(1.5 * multiplier)
-        pyautogui.doubleClick(789, 128)
-        time.sleep(1.5 * multiplier)
-        pyautogui.doubleClick(x=1019, y=267)
-        time.sleep(1.5 * multiplier)
-        pyautogui.doubleClick(x=1306, y=271)
-        time.sleep(1.5 * multiplier)
-        pyautogui.write(str(row['data']), interval=0.1 * multiplier)
-        pyautogui.press('enter')
-        time.sleep(0.25 * multiplier)
-        pyautogui.click(1087, 736)
-        pyautogui.click(1222, 390)
-        pyautogui.click(1181, 425)
-        pyautogui.click(x=757, y=468)
-        pyautogui.click(x=1104, y=678)
-        pyautogui.click(855, 742)
-        pyautogui.press('left')
-        pyautogui.press('left')
-        pyautogui.press('left')
-        pyautogui.press('left')
-        pyautogui.write(str(row['EMPRESA']), interval=0.1 * multiplier)
-        time.sleep(0.2 * multiplier)
-        pyautogui.click(1234, 397)
-        time.sleep(7 * multiplier)
-        pyautogui.click(1026, 605)
-        pyautogui.click(1324, 343)
-        time.sleep(1 * multiplier)
-        
-        completed_tasks += 1
-
-    pyautogui.hotkey('alt', 'f4')
-
-    end_time = time.time()
-    execution_time = end_time - start_time
-    print(f"Tempo de execução: {execution_time} segundos")
-    status_label.config(text="Processo concluído")
-    progress['value'] = 100
-    app.update_idletasks()
+def run_automation_scp(df, multiplier):
+    # Código de automação para Cadastro SCP aqui
+    time.sleep(3)
+    pyautogui.press('win')
+    pyautogui.write('ola, estou aqui')
+    pass
 
 def estimate_time(df):
     num_entries = len(df)
@@ -132,7 +66,8 @@ def show_help():
     help_text = ("Passos para automação:\n"
                  "1. Faça upload de um arquivo CSV contendo quaisquer colunas.\n"
                  "2. Ajuste o multiplicador de tempo de espera conforme necessário.\n"
-                 "3. Clique em 'Iniciar' para começar a automação.")
+                 "3. Selecione o projeto desejado.\n"
+                 "4. Clique em 'Iniciar' para começar a automação.")
     messagebox.showinfo("Ajuda", help_text)
 
 def pulse_text():
@@ -146,7 +81,7 @@ path = r"C:\Users\PC\Downloads\DECS-removebg-preview.png"
 app = tk.Tk()
 app.title("Automação DCTF")
 app.geometry('800x800')
-#app.attributes('-fullscreen', True)
+# app.attributes('-fullscreen', True)
 app.configure(bg='#FFECA1')
 
 font_style_title = ('Helvetica', 16, 'bold')
@@ -174,24 +109,38 @@ start_button.grid(row=3, column=1, pady=10, padx=10, sticky='w')
 help_button = tk.Button(frame, text="Ajuda", command=show_help, bg='#FFA500', fg='white', font=font_style_button, relief='raised')
 help_button.grid(row=3, column=0, pady=10, padx=10, sticky='e')
 
-project_selector_label = tk.Label(frame, text="Seletor de Projeto:                    ", bg='#FFECA1', font=font_style_label)
-project_selector_entry = tk.Entry(frame, width=20)
-project_selector_entry.grid(row=2, column=1, pady=20, padx=0, sticky='e')
-project_selector_entry.insert
+project_selector_label = tk.Label(frame, text="Seletor de Projeto:                           ", bg='#FFECA1', font=font_style_label)
 project_selector_label.grid(row=2, column=0, columnspan=2, pady=10, padx=50, sticky= 'e')
 
+# Menubutton variable
+selected_task = tk.StringVar()
+selected_task.set("Selecionar")  # Valor padrão
+
+# create the Menubutton
+menu_button = ttk.Menubutton(frame, textvariable=selected_task, width=20)
+
+# create a new menu instance
+menu = tk.Menu(menu_button, tearoff=0)
+
+for task in ["EFD Contribuições", "Cadastro SCP", "DCTF"]:
+    menu.add_radiobutton(label=task, value=task, variable=selected_task)
+
+# associate menu with the Menubutton
+menu_button["menu"] = menu
+menu_button.grid(row=2, column=1, pady=20, padx=0, sticky='e')
+
 estimated_time_label = tk.Label(frame, text="Estimativa de tempo de execução: N/A", bg='#FFECA1', font=font_style_label)
-estimated_time_label.grid(row=4, column=0, columnspan=2, pady=20, padx=20)
+estimated_time_label.grid(row=5, column=0, columnspan=2, pady=20, padx=20)
 
 status_label = tk.Label(frame, text="Status: Aguardando ação", bg='#FFECA1', font=font_style_label)
-status_label.grid(row=5, column=0, columnspan=2, pady=10, padx=20)
+status_label.grid(row=6, column=0, columnspan=2, pady=10, padx=20)
 
 progress = ttk.Progressbar(frame, orient='horizontal', length=400, mode='determinate')
-progress.grid(row=6, column=0, columnspan=2, pady=20, padx=20)
+progress.grid(row=7, column=0, columnspan=2, pady=20, padx=20)
 
 img = ImageTk.PhotoImage(Image.open(path))
-panel = tk.Label(app, image = img)
-panel.pack(side = "bottom", fill = "both", expand = "yes")
+panel = tk.Label(app, image=img)
+panel.pack(side="bottom", fill="both", expand="yes")
 
 pulse_text()
 
