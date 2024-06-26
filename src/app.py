@@ -54,20 +54,25 @@ def run_automation(df, multiplier):
         pyautogui.press('enter')
         time.sleep(5 * multiplier)
 
-        pyautogui.click(x=400, y=300)
-        pyautogui.write('usuario', interval=0.1 * multiplier)
+        pyautogui.click(x=914, y=451)
+        pyautogui.write('joas@controllersbr.com', interval=0.1 * multiplier) # seu usuario
+        pyautogui.press('tab')
+        pyautogui.write('005570@Senha', interval=0.1 * multiplier) # sua senha
         pyautogui.press('enter')
-        pyautogui.write('senha', interval=0.1 * multiplier)
-        pyautogui.press('enter')
-        time.sleep(5 * multiplier)
+        time.sleep(10 * multiplier)
 
-        pyautogui.click(x=400, y=400)
-        time.sleep(3 * multiplier)
+        pyautogui.click(x=686, y=307)
+        time.sleep(3.5 * multiplier)
+        pyautogui.write('enzo') # Seu usuario
+        pyautogui.press('tab')
+        pyautogui.write('senha@123') # Sua senha
+        time.sleep(6 * multiplier)
+
 
         # Dominio Web Automação
         pyautogui.doubleClick(162, 113)
         time.sleep(1 * multiplier)
-        pyautogui.write(str(row['CODIGO']), interval=0.1 * multiplier)
+        pyautogui.write(str(row['codigo']), interval=0.1 * multiplier)
         pyautogui.press('enter')
         time.sleep(3 * multiplier)
         pyautogui.doubleClick(510, 62)
@@ -80,7 +85,7 @@ def run_automation(df, multiplier):
         time.sleep(1.5 * multiplier)
         pyautogui.doubleClick(x=1306, y=271)
         time.sleep(1.5 * multiplier)
-        pyautogui.write(str(row['DATA']), interval=0.1 * multiplier)
+        pyautogui.write(str(row['data']), interval=0.1 * multiplier)
         pyautogui.press('enter')
         time.sleep(0.25 * multiplier)
         pyautogui.click(1087, 736)
@@ -164,11 +169,14 @@ start_button.grid(row=3, column=1, pady=10, padx=10, sticky='w')
 help_button = tk.Button(frame, text="Ajuda", command=show_help, bg='#FFA500', fg='white', font=font_style_button, relief='raised')
 help_button.grid(row=3, column=0, pady=10, padx=10, sticky='e')
 
+project_selector_label = tk.Label(frame, text="Seletor de Projeto:                    ", bg='#FFECA1', font=font_style_label)
+project_selector_entry = tk.Entry(frame, width=20)
+project_selector_entry.grid(row=2, column=1, pady=20, padx=0, sticky='e')
+project_selector_entry.insert
+project_selector_label.grid(row=2, column=0, columnspan=2, pady=10, padx=50, sticky= 'e')
+
 estimated_time_label = tk.Label(frame, text="Estimativa de tempo de execução: N/A", bg='#FFECA1', font=font_style_label)
 estimated_time_label.grid(row=4, column=0, columnspan=2, pady=20, padx=20)
-
-status_label = tk.Label(frame, text="Seletor de Projeto:", bg='#FFECA1', font=font_style_label)
-status_label.grid(row=2, column=0, columnspan=4, pady=10, padx=50, sticky= 'e')
 
 status_label = tk.Label(frame, text="Status: Aguardando ação", bg='#FFECA1', font=font_style_label)
 status_label.grid(row=5, column=0, columnspan=2, pady=10, padx=20)
