@@ -9,5 +9,5 @@ class TestAutomation(unittest.TestCase):
         except Exception as e:
             self.fail(f"enviar_dctf raised Exception unexpectedly: {e}")
 
-if __name__ == '__main__':
-    unittest.main()
+#if __name__ == '__main__':
+    #unittest.main()

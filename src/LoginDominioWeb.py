@@ -3,7 +3,7 @@ import time
 import DominioWeb
 import gui
 
-DominioWeb()
+
 def enviar_dctf(cnpj, periodo):
     start_time = time.time()
     
@@ -39,5 +39,5 @@ def enviar_dctf(cnpj, periodo):
 
 #if __name__ == '__main__':
     #gui()
-    #nviar_dctf()
+    #enviar_dctf()
     #DominioWeb()

@@ -35,14 +35,14 @@ def start_automation():
 app = tk.Tk()
 app.title("Automação DCTF")
 
-app.geometry('400x200')
-app.configure(bg='#f5f5f5')
+app.geometry('800x500')
+app.configure(bg='#FFECA1')
 
-tk.Label(app, text="Arquivo CSV:", bg='#f5f5f5', font=('Helvetica', 12)).grid(row=0, column=0, pady=10, padx=10)
-cnpj_entry = tk.Entry(app, width=40)
-cnpj_entry.grid(row=0, column=1, pady=10, padx=10)
+tk.Label(app, text="Arquivo CSV:", bg='#FFECA1', font=('Oswald', 14)).grid(row=0, column=0, pady=40, padx=40)
+cnpj_entry = tk.Entry(app, width=80)
+cnpj_entry.grid(row=0, column=1, pady=40, padx=10)
 
-tk.Button(app, text="Upload CSV", command=upload_csv, bg='#0073e6', fg='white', font=('Helvetica', 12)).grid(row=1, column=0, pady=10, padx=10)
-tk.Button(app, text="Iniciar", command=start_automation, bg='#28a745', fg='white', font=('Helvetica', 12)).grid(row=1, column=1, pady=10, padx=10)
+tk.Button(app, text="Upload CSV", command=upload_csv, bg='#4169e1', fg='white', font=('Oswald', 13)).grid(row=1, column=0, pady=4, padx=4)
+tk.Button(app, text="Iniciar", command=upload_csv, bg='#228b22', fg='white', font=('Oswald', 13)).grid(row=1, column=1, pady=4, padx=4)
 
 app.mainloop()
