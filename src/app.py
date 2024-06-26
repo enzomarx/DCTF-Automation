@@ -59,14 +59,17 @@ def run_automation(df, multiplier):
         pyautogui.press('tab')
         pyautogui.write('005570@Senha', interval=0.1 * multiplier) # sua senha
         pyautogui.press('enter')
-        time.sleep(10 * multiplier)
+        time.sleep(20 * multiplier)
 
         pyautogui.doubleClick(x=686, y=307)
-        time.sleep(3.5 * multiplier)
+        time.sleep(7.5 * multiplier)
         pyautogui.write('enzo') # Seu usuario
         pyautogui.press('tab')
         pyautogui.write('senha@123') # Sua senha
-        time.sleep(6 * multiplier)
+        pyautogui.press('tab')
+        pyautogui.press('tab')
+        pyautogui.press('enter')
+        time.sleep(20 * multiplier)
 
 
         # Dominio Web Automação
