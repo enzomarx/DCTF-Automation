@@ -4,7 +4,7 @@ from threading import Thread
 import pandas as pd
 import pyautogui
 import time
-
+pyautogui.PAUSE = 1
 def upload_csv():
     file_path = filedialog.askopenfilename(filetypes=[("CSV files", "*.csv")])
     if file_path:
@@ -34,11 +34,13 @@ def start_automation():
 def run_automation(row, multiplier):
 # Login Dominio Web
     
-    pyautogui.hotkey('win', 'r')
-    pyautogui.press('edge', interval=0.5 * multiplier)
+    pyautogui.press('win')
+    pyautogui.write('edge')
+    pyautogui.press('enter')
     time.sleep(2 * multiplier)
     
-    pyautogui.write('https://dominio-web.thomsonreuters.com', interval=0.4 * multiplier)
+    pyautogui.write('https://www.dominioweb.com.br/')
+    pyautogui.press('enter')
     time.sleep(5 * multiplier)
     
     pyautogui.click(x=400, y=300)
