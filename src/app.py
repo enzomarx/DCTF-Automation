@@ -43,17 +43,23 @@ def start_automation():
 
 def run_automation_dctf(df, multiplier):
     # Código de automação para DCTF aqui
+    time.sleep(3)
+    pyautogui.press('win')
+    pyautogui.write('DCTF')
     pass
 
 def run_automation_efd(df, multiplier):
     # Código de automação para EFD Contribuições aqui
+    time.sleep(3)
+    pyautogui.press('win')
+    pyautogui.write('EFD')
     pass
 
 def run_automation_scp(df, multiplier):
     # Código de automação para Cadastro SCP aqui
     time.sleep(3)
     pyautogui.press('win')
-    pyautogui.write('ola, estou aqui')
+    pyautogui.write('SCP')
     pass
 
 def estimate_time(df):
