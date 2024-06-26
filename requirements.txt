@@ -1,3 +1,8 @@
 pyautogui
 tkinter
 pandas
+
+configuração de tela:
+resolução: 1920x1080
+zoom: 125%
+
