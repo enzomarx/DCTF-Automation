@@ -2,41 +2,6 @@
 
 Este projeto automatiza a transmissão de DCTF para várias empresas utilizando o Domínio Web Thomson Reuters e o app da Receita DCTF. A automação é realizada utilizando `pyautogui` para simular interações com a interface do usuário e `tkinter` para criar uma interface gráfica para o usuário.
 
-# DCTF Automation
-
-Este projeto automatiza a transmissão de DCTF para várias empresas utilizando o Domínio Web Thomson Reuters e o app da Receita DCTF. A automação é realizada utilizando `pyautogui` para simular interações com a interface do usuário e `tkinter` para criar uma interface gráfica para o usuário.
-
-## Estrutura de Diretórios
-
-dctf_automation/
-│
-├── src/
-│ ├── init.py
-│ ├── automation.py
-│ └── gui.py
-│
-├── assets/
-│ └── README.md
-│
-├── tests/
-│ ├── init.py
-│ └── test_automation.py
-│
-├── requirements.txt
-└── README.md
-
-- `src/`: Contém os arquivos fonte do projeto.
-  - `__init__.py`: Torna este diretório um pacote Python.
-  - `automation.py`: Contém o código para a automação da transmissão da DCTF.
-  - `gui.py`: Contém o código para a interface gráfica do usuário.
-- `assets/`: Diretório para arquivos adicionais, como screenshots, documentação adicional, etc.
-  - `README.md`: Explicação sobre o conteúdo dos assets.
-- `tests/`: Contém testes automatizados para o projeto.
-  - `__init__.py`: Torna este diretório um pacote Python.
-  - `test_automation.py`: Arquivo de testes para o código de automação.
-- `requirements.txt`: Lista de dependências do projeto.
-- `README.md`: Documentação principal do projeto.
-
 ## Instalação
 
 1. Clone o repositório:
