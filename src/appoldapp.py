@@ -44,32 +44,32 @@ def run_automation(df, multiplier):
         app.update_idletasks()
         
         # Login Dominio Web
-        pyautogui.press('win')
-        time.sleep(0.5)
-        pyautogui.write('edge', interval=0.25)
-        pyautogui.press('enter')
-        time.sleep(2 * multiplier)
+#pyautogui.press('win')
+#time.sleep(0.5)
+#pyautogui.write('edge', interval=0.25)
+#pyautogui.press('enter')
+#time.sleep(2 * multiplier)
 
-        pyautogui.write('https://www.dominioweb.com.br/', interval=0.25)
-        pyautogui.press('enter')
-        time.sleep(5 * multiplier)
+#pyautogui.write('https://www.dominioweb.com.br/', interval=0.25)
+#pyautogui.press('enter')
+#time.sleep(5 * multiplier)
 
-        pyautogui.click(x=914, y=451)
-        pyautogui.write('joas@controllersbr.com', interval=0.1 * multiplier) # seu usuario
-        pyautogui.press('tab')
-        pyautogui.write('005570@Senha', interval=0.1 * multiplier) # sua senha
-        pyautogui.press('enter')
-        time.sleep(30 * multiplier)
+#pyautogui.click(x=914, y=451)
+#pyautogui.write('joas@controllersbr.com', interval=0.1 * multiplier) # seu usuario
+#pyautogui.press('tab')
+#pyautogui.write('005570@Senha', interval=0.1 * multiplier) # sua senha
+#pyautogui.press('enter')
+#time.sleep(30 * multiplier)
 
-        pyautogui.doubleClick(x=686, y=307)
-        time.sleep(7.5 * multiplier)
-        pyautogui.write('enzo') # Seu usuario
-        pyautogui.press('tab')
-        pyautogui.write('senha@123') # Sua senha
-        pyautogui.press('tab')
-        pyautogui.press('tab')
-        pyautogui.press('enter')
-        time.sleep(35 * multiplier)
+#pyautogui.doubleClick(x=686, y=307)
+#time.sleep(7.5 * multiplier)
+#pyautogui.write('enzo') # Seu usuario
+#pyautogui.press('tab')
+#pyautogui.write('senha@123') # Sua senha
+#pyautogui.press('tab')
+#pyautogui.press('tab')
+#pyautogui.press('enter')
+#time.sleep(35 * multiplier)
 
 
         # Dominio Web Automação
@@ -103,7 +103,7 @@ def run_automation(df, multiplier):
         pyautogui.press('left')
         pyautogui.press('left')
         pyautogui.press('left')
-        pyautogui.write(str(row['EMPRESA']), interval=0.1 * multiplier)
+        pyautogui.write(str(row['codigo']), interval=0.1 * multiplier)
         time.sleep(0.2 * multiplier)
         pyautogui.click(1234, 397)
         time.sleep(7 * multiplier)
