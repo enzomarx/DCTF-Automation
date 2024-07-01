@@ -228,11 +228,11 @@ start_button.grid(row=3, column=1, pady=10, padx=10, sticky='w')
 help_button = tk.Button(frame, text="Ajuda", command=show_help, bg='#FFA500', fg='white', font=font_style_button, relief='raised')
 help_button.grid(row=3, column=0, pady=10, padx=10, sticky='e')
 
-project_selector_label = tk.Label(frame, text="Seletor de Projeto:                    ", bg='#FFECA1', font=font_style_label)
-project_selector_entry = tk.Entry(frame, width=20)
-project_selector_entry.grid(row=2, column=1, pady=20, padx=0, sticky='e')
-project_selector_entry.insert
-project_selector_label.grid(row=2, column=0, columnspan=2, pady=10, padx=50, sticky= 'e')
+#project_selector_label = tk.Label(frame, text="DCTF Automation                    ", bg='#FFECA1', font=font_style_label)
+#project_selector_entry = tk.Entry(frame, width=20)
+#project_selector_entry.grid(row=2, column=1, pady=20, padx=0, sticky='e')
+#project_selector_entry.insert
+#project_selector_label.grid(row=2, column=0, columnspan=2, pady=10, padx=50, sticky= 'e')
 
 estimated_time_label = tk.Label(frame, text="Estimativa de tempo de execução: N/A", bg='#FFECA1', font=font_style_label)
 estimated_time_label.grid(row=4, column=0, columnspan=2, pady=20, padx=20)
