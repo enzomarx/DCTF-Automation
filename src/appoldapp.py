@@ -55,9 +55,9 @@ def run_automation(df, multiplier):
         time.sleep(5 * multiplier)
 
         pyautogui.click(x=914, y=451)
-        pyautogui.write('joas@controllersbr.com', interval=0.1 * multiplier) # Seu usuario
+        pyautogui.write('x', interval=0.1 * multiplier) # Seu usuario
         pyautogui.press('tab')
-        pyautogui.write('005570@Senha', interval=0.1 * multiplier) # Sua senha
+        pyautogui.write('y', interval=0.1 * multiplier) # Sua senha
         pyautogui.press('enter')
         time.sleep(30 * multiplier)
 
