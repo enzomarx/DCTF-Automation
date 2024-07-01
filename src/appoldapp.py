@@ -75,6 +75,8 @@ def run_automation(df, multiplier):
         # Dominio Web Automação
         pyautogui.doubleClick(162, 113)
         time.sleep(5 * multiplier)
+        pyautogui.click(x=778, y=250)
+        time.sleep(1.5 * multiplier)
         pyautogui.write(str(row['codigo']), interval=0.3 * multiplier)
         pyautogui.press('enter')
         time.sleep(3 * multiplier)
@@ -119,6 +121,53 @@ def run_automation(df, multiplier):
         time.sleep(1 * multiplier)
         
         completed_tasks += 1
+
+        # DCTF programa abrir
+        time.sleep(1 * multiplier)
+        pyautogui.press('edge')
+        time.sleep(1 * multiplier)
+        pyautogui.write('dctf')
+        time.sleep(1 * multiplier)
+        pyautogui.press('enter')
+        time.sleep(30 * multiplier)
+
+        completed_tasks += 1
+
+        # importar arquivo
+        pyautogui.click(29,39)
+        pyautogui.click(81,120)
+        pyautogui.doubleClick(642,600)
+        pyautogui.click(1035,543) 
+        pyautogui.click(1306,533)
+        pyautogui.click(1074,609) # ok button
+        pyautogui.click(1286,576) # cancel button
+
+        completed_tasks += 1
+
+        # Abrir arquivo
+        pyautogui.click(57,72)
+        pyautogui.click(1064,733)
+        
+        completed_tasks += 1
+
+        # Gravando arquivo
+        pyautogui.click(x=150, y=70)
+        pyautogui.click(x=863, y=746)
+        pyautogui.click(x=1153, y=606)
+
+        completed_tasks += 1
+
+        # Trasnmitir arquivo
+        pyautogui.click(x=230, y=68)
+        pyautogui.click(x=1166, y=536)
+        pyautogui.click(x=866, y=513)
+        pyautogui.click(x=574, y=712)
+        pyautogui.click(x=974, y=717)
+
+        completed_tasks += 1
+
+
+        # Clean all
 
     end_time = time.time()
     execution_time = end_time - start_time
