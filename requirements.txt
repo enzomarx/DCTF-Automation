@@ -1,3 +1,4 @@
+bibliotecas:
 pyautogui
 tkinter
 pandas
@@ -6,3 +7,7 @@ configuração de tela:
 resolução: 1920x1080
 zoom: 125%
 
+Apps:
+DCTF Mensal 3.7
+Domínio Escrita Fiscal - Versão: 10.4A-06 - 03
+Microsoft Edge
