@@ -121,12 +121,14 @@ def run_automation(df, multiplier):
         time.sleep(1.5 * multiplier)
         pyautogui.click(1324, 343)
         time.sleep(1 * multiplier)
+        pyautogui.press('enter')
+        pyautogui.click(1028,603)
         
         completed_tasks += 1
 
         # DCTF programa abrir
         time.sleep(1 * multiplier)
-        pyautogui.press('edge')
+        pyautogui.press('win')
         time.sleep(1 * multiplier)
         pyautogui.write('dctf')
         time.sleep(1 * multiplier)
@@ -165,6 +167,9 @@ def run_automation(df, multiplier):
         pyautogui.click(x=866, y=513)
         pyautogui.click(x=574, y=712)
         pyautogui.click(x=974, y=717)
+        pyautogui.click(723,450) # seleciona primeiro na lista de certificados
+        pyautogui.click(896,783) # assinar button
+        pyautogui.click(1154,669)
 
         completed_tasks += 1
 
@@ -176,6 +181,8 @@ def run_automation(df, multiplier):
         pyautogui.click(x=895, y=697)
 
         completed_tasks += 1
+
+        #need clean the folder Brother to go to the next cycle or increment tab in the importation selection
 
     end_time = time.time()
     execution_time = end_time - start_time
