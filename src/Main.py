@@ -172,7 +172,7 @@ def run_automation(df, multiplier):
         pyautogui.click(x=866, y=513)
         pyautogui.click(x=574, y=712)
         pyautogui.click(x=974, y=717)
-        pyautogui.click(723,450) # seleciona primeiro na lista de certificados
+        pyautogui.click(723,450) # seleciona primeiro na lista de certificados (necessaria logica de seleção)
         pyautogui.click(896,783) # assinar button
         pyautogui.click(1154,669)
 
