@@ -11,3 +11,4 @@ Apps:
 DCTF Mensal 3.7
 Domínio Escrita Fiscal - Versão: 10.4A-06 - 03
 Microsoft Edge
+Python 3

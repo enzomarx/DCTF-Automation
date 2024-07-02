@@ -5,8 +5,13 @@ import pandas as pd
 import pyautogui
 import time
 from PIL import ImageTk, Image
+import os
+import shutil
 
 pyautogui.PAUSE = 0.5
+
+source_folder = r'C:\Brother'
+destination_folder = r'C:\DCTF'
 
 def upload_csv():
     file_path = filedialog.askopenfilename(filetypes=[("CSV files", "*.csv")])
@@ -182,7 +187,26 @@ def run_automation(df, multiplier):
 
         completed_tasks += 1
 
-        #need clean the folder Brother to go to the next cycle or increment tab in the importation selection
+        time.sleep(2)
+
+        #browser
+        files = os.listdir(source_folder)
+        os.makedirs(destination_folder, exist_ok=True)
+
+        #copy
+        for file_name in files:
+            if file_name.endswith('.rfb'):
+                source_file_path = os.path.join(source_folder, file_name)
+                destination_file_path = os.path.join(destination_folder, file_name)
+                shutil.copy2(source_file_path, destination_file_path)
+                print(f"Copied: {file_name}")
+        #delete
+        for file_name in files:
+            if file_name.endswith('.rfb'):
+                file_path = os.path.join(source_folder, file_name)
+                os.remove(file_path)
+                print(f"Deleted: {file_name}")
+        print("Operations completed successfully.")
 
     end_time = time.time()
     execution_time = end_time - start_time
