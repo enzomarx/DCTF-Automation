@@ -49,6 +49,8 @@ def run_automation(df, multiplier):
         pyautogui.write('edge', interval=0.25)
         pyautogui.press('enter')
         time.sleep(2 * multiplier)
+        pyautogui.rightClick(1694,316)
+        pyautogui.click(1641,438)
 
         pyautogui.write('https://www.dominioweb.com.br/', interval=0.25)
         pyautogui.press('enter')
